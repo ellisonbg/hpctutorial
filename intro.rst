@@ -15,7 +15,7 @@ Concurrent Computing
     A programming model that allows multiple tasks to be *seemingly* executed
     at the same time. Depending on the implementation, the tasks may or may 
     not actually be executed at the same time. Examples: Erlang, Go, 
-    Stackless, Scala, Clojure.
+    Stackless, Scala, Clojure, threads.
 
 Distributed Computing
     A computation that is executed on multiple hosts that communicate over a
@@ -43,6 +43,13 @@ Under these definitions:
     tutorial: to make computations go faster using parallel hardware.
 
 This tutorial is about *parallel computing*.
+
+.. note::
+    For many people, "parallel computing" has a lot of connotations: MPI,
+    compiled languages, cluster or supercomputers (head node, batch
+    system and shared file system), input files, output files, etc. This
+    tutorial provides a very different take on parallel computing, one that
+    emphasizes interactive work and ease of use.
 
 Goals of this tutorial
 ======================
@@ -88,7 +95,7 @@ Speeding up a program through parallelism is difficult. Furthermore, there
 is no guarantee that your efforts will be successful. After much hard work,
 you may end up with parallel version of your program that not much faster
 (or even slower!) than the serial version. In fact, as Amdahl's law
-clarifies, in some cases, you are guaranteed to achieve minimal success.
+shows, in some cases, you are guaranteed to achieve minimal success.
 
 Even if you are successful in speeding up your program, you will likely
 have to:

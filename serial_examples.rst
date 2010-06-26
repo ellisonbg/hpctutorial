@@ -21,7 +21,7 @@ function tests if its argument is prime or not:
    :pyobject: isprime
    :linenos:
 
-The :func:`sum_primes` makes repeated calls to :func:`isprime` to sum
+The :func:`sum_primes` function makes repeated calls to :func:`isprime` to sum
 up the primes less than ``n``:
 
 .. literalinclude:: /code/prime1.py
@@ -36,7 +36,7 @@ Exercise:
   :func:`sum_primes`.
 * Time their execution for different arguments using ``%timeit``.
 
-Let's test these functions out in IPython and time their execution:
+Solution:
 
 .. sourcecode:: ipython
 

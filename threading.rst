@@ -118,12 +118,12 @@ section can run in parallel with other Python code.
 There are a number of downsides to this approach:
 
 * You have to choose between parallelism and Python. The parts of your code
-  that run in parallel can't be written in Python. Cython does easy the pain
-  a bit.
+  that run in parallel can't be written in Python. Cython does ease the pain
+  a bit however.
 * The resulting code will only work on a multicore CPU, not on a cluster or
   supercomputer.
 * If your program is memory bandwidth limited, you probably won't see a
-  significant speedup on a multicore CPU anyways. You may even see slow
+  significant speedup on a multicore CPU anyways. You may even see a slow
   down if cache contention becomes an issue.
 
 Intel MKL
@@ -176,7 +176,7 @@ Exercise:
 * Do some functions in :mod:`numpy.linalg` get a better parallel speedup than
   others when running on multiple cores?
 * Look at the NumPy and SciPy source code to see if you can determine which
-  functions and methods use the Intel MKL. Also, Look at the Intel MKL
+  functions and methods use the Intel MKL. Also, look at the Intel MKL
   documentation to see which MKL routines are multithreaded.
 
 The `numexpr <http://code.google.com/p/numexpr/>`_ package also has the
@@ -194,45 +194,50 @@ To run code in parallel using threads, you will need to use the
 <http://docs.python.org/library/threading.html#module-threading>`_ of the
 standard library. While threads can share memory, your life will be most
 pleasant if you don't utilize this capability. The easiest way of using
-threads without sharing memory is to use the :class:`Queue.Queue` class of the
+threads without sharing memory is to use the :class:`~Queue.Queue` class of the
 :mod:`Queue` `module 
 <http://docs.python.org/library/queue.html#module-Queue>`_ to pass messages
 between threads. This is the approach that is described here.
 
 First, let's look at the API for :class:`Queue.Queue` and
-:class:`threading.Thread`. Here is the constructor for :class:`Queue.Queue`::
+:class:`threading.Thread`. Here is a description of the core methods of the 
+:class:`~Queue.Queue` class:
 
-    Queue.Queue(maxsize=0)
+:class:`Queue(maxsize=0)`
+    Create a queue object with a maximum size.
 
-and a table of its most important methods:
+:attr:`Queue.put(foo==bar)`
+    Put an item on the queue.
 
-+---------------------+------------------------------+
-| :meth:`Queue.put`   | put an item on the queue     |
-+---------------------+------------------------------+
-| :meth:`Queue.get`   | take an item off the queue   |
-+---------------------+------------------------------+
-| :meth:`Queue.full`  | is the queue full            |
-+---------------------+------------------------------+
-| :meth:`Queue.empty` | is the queue empty           |
-+---------------------+------------------------------+
+:attr:`Queue.get(a =10)`
+    Get an item from the queue.
 
-Here is the constructor for :class:`threading.Thread`::
+:attr:`Queue.full()`
+    Is the queue full?
 
-    threading.Thread(group=None, target=None, name=None, args=(), kwargs={})
+:attr:`Queue.empty()`
+    Is the queue empty?
 
-and a table of its most important methods:
+Likewise, here are the core methods and attributes of the 
+:class:`threading.Thread` class:
 
-+-------------------------+---------------------------------------------------+
-| :meth:`Thread.start`    | start the thread's activity by calling its target |
-+-------------------------+---------------------------------------------------+
-| :meth:`Thread.join`     | wait until the thread terminates                  |
-+-------------------------+---------------------------------------------------+
-| :attr:`Thread.daemon`   | set/get the thread as a daemon                    |
-+-------------------------+---------------------------------------------------+
-| :attr:`Thread.name`     | the name of the thread, set by :meth:`__init__`   |
-+-------------------------+---------------------------------------------------+
-| :meth:`Thread.is_alive` | is the thread still running                       |
-+-------------------------+---------------------------------------------------+
+:class:`Thread(group=None, target=None, name=None, args=(), kwargs={})`
+    Create a thread with name that runs ``target(*args, **kwargs)``.
+
+:attr:`Thread.start()`
+    Start the thread's activity by calling its target.
+
+:attr:`Thread.join(timeout=None)`
+    Wait until the thread terminates.
+
+:attr:`Thread.is_alive()`
+    Is the thread still running
+
+:attr:`Thread.name`
+    The name the thread.
+
+:attr:`Thread.daemon`
+    Boolean to indicate if the thread is a daemon.
 
 Exercise:
 
@@ -241,6 +246,8 @@ Exercise:
   :meth:`Queue.put` and :meth:`Queue.get`. What happens if you call 
   :meth:`Queue.get` while the queue is empty? What do the ``block`` and
   ``timeout`` arguments to :meth:`Queue.put` and :meth:`Queue.get` do?
+
+Solution:
 
 .. sourcecode:: ipython
 
@@ -269,7 +276,7 @@ Thread pools
 
 To use threads for parallelism, it is often helpful to use a thread pool. A
 thread pool creates a small number of worker threads and then distributes
-tasks amongst the worker threads using a queue. There are two reasons a thread
+tasks to the worker threads using a queue. There are two reasons a thread
 pool is helpful:
 
 * The overhead of thread creation only happens once when the pool is created.
@@ -299,7 +306,8 @@ For a more powerful thread pool implementation, see Christopher Arndt's
 When to use threads
 ===================
 
-* You want very low communication overhead. It won't get better than threads.
+* You want very low communication overhead. You can't beat threads in this
+  respect.
 * It is easy to write the parallel code in pure C/C++ by hand or using Cython.
 * You already have a C/C++ library that you can call with ``nogil``.
 
@@ -336,6 +344,8 @@ Exercise:
   better?  Why?
 * Repeat this for the slower versions of these functions in :mod:`prime1`.
   What do you observe?
+
+Solution:
 
 Here is what I observe for :func:`prime2.isprime`:
 

@@ -41,7 +41,7 @@ upper bound on the speedup :math:`S` you can get running on :math:`N` cores.
 
     Amdahl's law is *bad news*.
 
-* :math:`P` = faction of a program that can be parallelized.
+* :math:`P` = fraction of a program that can be parallelized.
 * :math:`1-P` = fraction of a program that *cannot* be parallelized. This
   is the serial fraction.
 
@@ -77,9 +77,9 @@ ever get faster than this!
 Estimating the parallel faction
 ===============================
 
-It can be very difficult to determine the parallel fraction :math:`P` required
-in Amdahl's law.  Fortunately, there is a simple way of estimating it. Here 
-is how it works.
+For a given program, it can be very difficult to determine the parallel
+fraction :math:`P` required in Amdahl's law. Fortunately, there is a simple
+way of estimating it. Here is how it works.
 
 1. Run your program on :math:`N=1` core and record the execution time 
    :math:`T_1`.
@@ -93,7 +93,7 @@ The estimated parallel fraction is then:
 
     P = \frac{\frac{1}{S}-1}{\frac{1}{N}-1}
 
-Obviously, this estimate is unable to distinguish between the speedup looses
+Obviously, this estimate is unable to distinguish between the speedup loses
 due to the serial fraction and other factors like bottlenecks, sub-optimal 
 parallel algorithms, communication overhead, etc. But, it is a starting point.
 

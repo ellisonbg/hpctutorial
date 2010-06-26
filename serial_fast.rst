@@ -8,6 +8,10 @@ Donald Knuth:
 
     Premature optimization is the root of all evils
 
+Corollary:
+
+    Premature parallelization is no exception.
+
 Remember, your main goal is to speed up your computation. Parallelization is 
 one possible route to this end. There are other routes. The other option
 to speedup your program is to simply make your serial version faster!
@@ -53,21 +57,32 @@ use IPython's ``%run`` magic with the ``-t`` flag:
       User  :   0.001133 s.
       System:   0.000113 s.
 
-Finally, if you cannot use IPython for timing code, you can use
-the :func:`clock` function in the standard library's :mod:`time` 
-`module <http://docs.python.org/library/time.html#module-time>`_:
+Finally, if you cannot use IPython for timing code, you can use the
+:func:`time` or :func:`clock` functions in the standard library's
+:mod:`time` `module
+<http://docs.python.org/library/time.html#module-time>`_. Which of these
+should you use? The Python docs are actually quite confusing on this issue,
+but the following code in the :mod:`timeit` module is quite clear::
+
+    if sys.platform == "win32":
+        # On Windows, the best timer is time.clock()
+        default_timer = time.clock
+    else:
+        # On most other platforms the best timer is time.time()
+        default_timer = time.time
+
+Here is an example of how to use this in a cross platform manner:
 
 .. sourcecode:: ipython
 
-    In [10]: import time
+    In [10]: from timeit import default_timer as timer
 
-    In [11]: t1 = time.clock()
+    In [11]: t1 = timer()
 
-    In [12]: t2 = time.clock()
+    In [12]: t2 = timer()
 
     In [13]: print "Elapsed time in seconds: ", t2-t1
     Elapsed time in seconds:  0.003032
-
 
 Profile your code
 -----------------
@@ -103,8 +118,7 @@ Try numexpr to improve array based expressions
 The `numexpr <http://code.google.com/p/numexpr/>`_ package uses a just in time
 compiler (JIT) to compile array expressions on the fly. It eliminates
 temporary arrays makes uses a variety of techniques to make computations cache
-friendly. Furthermore, if you compile numexpr with support for Intel MKL (Math
-Kernel Library) you will also get parallel multicore support.
+friendly.  Here is a simple example:
 
 .. sourcecode:: ipython
 
@@ -125,6 +139,9 @@ Kernel Library) you will also get parallel multicore support.
     In [7]: 74.5/23
 
     Out[7]: 3.2391304347826089  # speedup
+
+Furthermore, if you compile numexpr with support for Intel MKL (Math Kernel
+Library) you will also get parallel multicore support.
 
 Rewrite critical sections in a compiled language
 ------------------------------------------------
@@ -185,7 +202,7 @@ Exercise:
   in :mod:`prime2`.
 * Compute the speedup you got from simply using Cython.
 
-Here is what I get:
+Solution:
 
 .. sourcecode:: ipython
 
