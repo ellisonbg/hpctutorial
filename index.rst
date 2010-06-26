@@ -9,15 +9,19 @@ HPC for Python: A Tutorial
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    intro.rst
    speedup.rst
    bottlenecks.rst
+   serial_examples.rst
+   serial_fast.rst
    threading.rst
    multiprocessing.rst
    ipython.rst
    picloud.rst
+   mpi4py.rst
+   pyzmq.rst
 
 Indices and tables
 ==================
