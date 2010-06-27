@@ -96,7 +96,7 @@ Here is the basic API of the :class:`multiprocessing.Pool` class:
     A parallel version of Python's built-in :func:`map` function.
 
 :attr:`Pool.map_async(func, iterable, chunksize=1, callback=None)`
-    Same as :methd:`Pool.map`, but asynchronously.
+    Same as :meth:`Pool.map`, but asynchronously.
 
 :attr:`Pool.close()`
     Prevent any further tasks from being submitted to the pool and exit
@@ -201,6 +201,8 @@ Exercise:
   that you will need to put this code into a standalone script with a 
   ``if __name__ == '__main__'`` block.
 * Time the code using :func:`time.clock` and determine its parallel speedup.
+* Try to speedup the code further by increasing the ``chunksize`` in calls
+  to :meth:`Pool.map`.
 
 Solution:
 
