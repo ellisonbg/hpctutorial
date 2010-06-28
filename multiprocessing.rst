@@ -159,7 +159,7 @@ There are a number of things to be aware of when using multiprocessing:
   :mod:`threading`.
 * There are numerous platform inconsistencies, especially on Windows.
 * On Linux and OS X, multiprocessing uses :func:`os.fork` and not everything
-  likes to be forked.
+  likes to be forked (threads, GUIs).
 
 The multiprocessing documentation has a more complete set of 
 `programming guidelines 

@@ -11,7 +11,8 @@ the next two chapters cover two tools for message passing in Python:
 
 In this chapter we describe the Message Passing Interface (`MPI
 <http://www.mcs.anl.gov/research/projects/mpi/>`_) and a high quality Python
-wrapper to it, called `mpi4py <http://code.google.com/p/mpi4py/>`_.
+wrapper to it, called `MPI For Python <http://code.google.com/p/mpi4py/>`_,
+or :mod:`mpi4py`.
 
 MPI
 ===

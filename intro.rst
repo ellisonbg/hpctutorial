@@ -15,8 +15,8 @@ Concurrent Computing
     A programming model that allows multiple tasks to be *seemingly* executed
     at the same time. Depending on the implementation, the tasks may or may
     not actually be executed at the same time. Examples: Erlang, Go,
-    Stackless, Scala, Clojure, threads. Concurrency is somewhat trendy right
-    now.
+    Stackless, Scala, Clojure, threads, coroutines, Twisted. Concurrency is
+    somewhat trendy right now.
 
 Distributed Computing
     A computation that is executed on multiple hosts that communicate over a
@@ -123,4 +123,13 @@ parallelize your program. The following software tools will be covered:
 * :ref:`IPython <ipython>`
 * :ref:`PiCloud <picloud>`
 * :ref:`Mpi4Py <mpi4py>`
-* :ref:`PyZMQ <pyzmq>`
+* :ref:`PyZMQ <pyzmq_chapter>`
+
+The dependencies for the current version of the tutorial are:
+
+* Python 2.6
+* IPython with its parallel computing dependencies (zope.interface, Twisted,
+  Foolscap).
+* PiCloud
+
+All of these dependencies come with EPD versions 6.1 and 6.2.

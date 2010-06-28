@@ -1,14 +1,14 @@
-.. _pyzmq:
+.. _pyzmq_chapter:
 
 =====
 PyZMQ
 =====
 
 This chapter describes a relatively new message passing library, called
-`0MQ <http://www.zeromq.org/>`_ or "ZeroMQ", and its Python wrappers
+`ØMQ <http://www.zeromq.org/>`_ or "ZeroMQ", and its Python wrappers
 `PyZMQ <http://github.com/ellisonbg/pyzmq>`_.
 
-0MQ
+ØMQ
 ===
 
 * C++ messaging library.

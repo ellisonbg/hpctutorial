@@ -66,7 +66,7 @@ Client
 Here are some other highlights of IPython's parallel computing framework:
 
 * Full support for message passing using `MPI
-  <http://www.mcs.anl.gov/research/projects/mpi/>`_ or `0MQ
+  <http://www.mcs.anl.gov/research/projects/mpi/>`_ or `ØMQ
   <http://www.zeromq.org/>`_. But MPI is not a dependency.
 * Extensible integration with popular batch systems (ssh, PBS, mpiexec,
   Windows HPC Server 2008 (upcoming release), SGE (upcoming release)).
