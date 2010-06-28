@@ -201,7 +201,7 @@ between threads. This is the approach that is described here.
 
 First, let's look at the API for :class:`Queue.Queue` and
 :class:`threading.Thread`. Here is a description of the core methods of the 
-:class:`~Queue.Queue` class:
+:class:`~Queue.Queue` class, which is a "first in first out" (FIFO) queue:
 
 :class:`Queue(maxsize=0)`
     Create a queue object with a maximum size.

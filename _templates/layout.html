@@ -18,7 +18,10 @@
 {{ super() }}
 {% endblock %}
 
+{% set sidebartoc = false %}
+
 {# put the sidebar before the body #}
-{% block sidebar1 %}{{ sidebar() }}{% endblock %}
+{#{% block sidebar1 %}{{ sidebar() }}{% endblock %}#}
+{% block sidebar1 %}{% endblock %}
 {% block sidebar2 %}{% endblock %}
 

@@ -6,6 +6,8 @@
 HPC for Python: A Tutorial
 ==========================
 
+Brian E. Granger
+
 Contents:
 
 .. toctree::

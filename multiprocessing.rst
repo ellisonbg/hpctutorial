@@ -210,7 +210,9 @@ Solution:
    :language: python
    :linenos:
 
-Running this code on two cores, I get::
+Running this code on two cores, I get:
+
+.. code-block:: bash
 
     $ python prime1_mp.py
     Serial isprime time:  0.0892119407654
@@ -232,7 +234,9 @@ Solution:
    :language: python
    :linenos:
 
-Running this code on two cores, I get::
+Running this code on two cores, I get:
+
+.. code-block:: bash
 
     $ python prime2_mp.py
     Serial isprime time:  0.0113651752472
