@@ -1,3 +1,5 @@
+"""max_speedup.py: A script to plat the max speedup of Amdahl's law."""
+
 from pylab import *
 
 def max_speedup(P):

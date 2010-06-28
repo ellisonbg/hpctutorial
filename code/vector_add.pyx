@@ -1,7 +1,12 @@
-# To build using pyximport simply do:
-# >>> import pyximport
-# >>> pyximport.install(setup_args=dict(include_dirs=[numpy.get_include()]))
-# >>> import vector_add
+"""vector_add.py: A nogil Cython function to add two vectors together.
+
+To build using pyximport simply do::
+
+    >>> import pyximport
+    >>> pyximport.install(setup_args=dict(include_dirs=[numpy.get_include()]))
+    >>> import vector_add
+"""
+
 
 import numpy as np
 cimport numpy as np

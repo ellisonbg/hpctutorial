@@ -1,3 +1,5 @@
+"""prime2_mp.py: Parallelize prime2 using multiprocessing."""
+
 from timeit import default_timer as timer
 from multiprocessing import Pool, cpu_count
 

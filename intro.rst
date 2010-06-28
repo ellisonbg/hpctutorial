@@ -13,9 +13,10 @@ parallel computing. What do we mean by parallel computing?
 
 Concurrent Computing
     A programming model that allows multiple tasks to be *seemingly* executed
-    at the same time. Depending on the implementation, the tasks may or may 
-    not actually be executed at the same time. Examples: Erlang, Go, 
-    Stackless, Scala, Clojure, threads.
+    at the same time. Depending on the implementation, the tasks may or may
+    not actually be executed at the same time. Examples: Erlang, Go,
+    Stackless, Scala, Clojure, threads. Concurrency is somewhat trendy right
+    now.
 
 Distributed Computing
     A computation that is executed on multiple hosts that communicate over a

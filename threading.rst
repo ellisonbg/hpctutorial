@@ -110,7 +110,7 @@ during critical sections:
 
 .. literalinclude:: /code/vector_add.pyx
    :language: cython
-   :lines: 6-
+   :lines: 15-
 
 When the :func:`vector_add` function is run in a thread, the ``with nogil:``
 section can run in parallel with other Python code. 

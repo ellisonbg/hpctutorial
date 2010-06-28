@@ -1,4 +1,4 @@
-"""A simple example of multiprocessing's threading API."""
+"""mp1.py: A simple example of multiprocessing's threading API."""
 
 import os
 from multiprocessing import Process

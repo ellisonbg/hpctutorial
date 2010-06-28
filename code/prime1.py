@@ -1,4 +1,4 @@
-"""Pure Python versions of isprime and sum_primes."""
+"""prime1.py: Pure Python versions of isprime and sum_primes."""
 
 import math
 

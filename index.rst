@@ -24,6 +24,7 @@ Contents:
    picloud.rst
    mpi4py.rst
    pyzmq.rst
+   conclusion.rst
 
 Indices and tables
 ==================

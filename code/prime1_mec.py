@@ -1,3 +1,5 @@
+"""prime1_mec.py: Parallelize prime1 using IPython's MultiEngineClient interface."""
+
 from timeit import default_timer as timer
 from IPython.kernel import client
 

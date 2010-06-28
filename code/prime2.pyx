@@ -1,4 +1,4 @@
-"""Fast Cython versions of isprime and sum_primes."""
+"""prime2.pyx: Fast Cython versions of isprime and sum_primes."""
 
 cimport cython
 import math

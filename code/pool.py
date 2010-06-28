@@ -1,4 +1,4 @@
-"""A simple poll implementation using threads or processes."""
+"""pool.py: A simple poll implementation using threads or processes."""
 
 import multiprocessing
 import Queue

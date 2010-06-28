@@ -1,3 +1,5 @@
+"""speedup.py: A Script to plot the speedup from Amdahls law."""
+
 from pylab import *
 
 def speedup(P, N):

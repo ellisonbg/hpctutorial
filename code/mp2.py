@@ -1,4 +1,4 @@
-"""A simple example of multiprocessing's pool API."""
+"""mp3.py: A simple example of multiprocessing's pool API."""
 
 from multiprocessing import Pool
 import os
