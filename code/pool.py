@@ -1,4 +1,13 @@
-"""pool.py: A simple poll implementation using threads or processes."""
+"""pool.py: A simple poll implementation using threads or processes.
+
+The following looks like some sort of problem with multiprocessing::
+
+    from scipy.special import lambertw
+    from pool import SimpleProcessPool
+    p = SimpleProcessPool(1)
+    p.map(lambertw, range(100)) # OK
+    p.map(lambertw, range(1000)) # hangs on out_queue.join()
+"""
 
 import multiprocessing
 import Queue
@@ -54,6 +63,7 @@ class SimpleProcessPool(object):
             try:
                 arg = in_queue.get(block=False)
                 result = f(arg)
+                print "Did iteration for arg:", arg
                 out_queue.put(result)
                 # This allows us to call in_queue.join() below.
                 in_queue.task_done()
